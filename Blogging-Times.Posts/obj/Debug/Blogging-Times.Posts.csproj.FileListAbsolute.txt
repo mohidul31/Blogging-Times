@@ -1,0 +1,17 @@
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\bin\Debug\Blogging-Times.Posts.dll.config
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\bin\Debug\Blogging-Times.Posts.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\bin\Debug\Blogging-Times.Posts.pdb
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\bin\Debug\Blogging-Times.Data.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\bin\Debug\EntityFramework.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\bin\Debug\Blogging-Times.Data.pdb
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\bin\Debug\Blogging-Times.Data.dll.config
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\bin\Debug\EntityFramework.xml
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging-Times.Posts.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging-Times.Posts.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging-Times.Posts.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging-Times.Posts.pdb
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging_Times.Posts.Migrations.InitialCreate.resources
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging-Times.Posts.csproj.GenerateResource.Cache
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging_Times.Posts.Migrations.ManyToManyRelatrion_1.resources

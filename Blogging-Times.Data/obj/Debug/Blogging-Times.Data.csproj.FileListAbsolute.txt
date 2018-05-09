@@ -1,0 +1,11 @@
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Debug\Blogging-Times.Data.dll.config
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Debug\Blogging-Times.Data.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Debug\Blogging-Times.Data.pdb
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Debug\EntityFramework.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Debug\EntityFramework.xml
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\obj\Debug\Blogging-Times.Data.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\obj\Debug\Blogging-Times.Data.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\obj\Debug\Blogging-Times.Data.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\obj\Debug\Blogging-Times.Data.pdb

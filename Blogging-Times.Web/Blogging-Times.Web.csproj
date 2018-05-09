@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -151,6 +157,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\PostCategoriesController.cs" />
+    <Compile Include="Areas\Admin\PostTagsController.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
     <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
@@ -523,6 +531,17 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout_without_box.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout_with_box.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\PostCategories\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PostCategories\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PostCategories\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\PostCategories\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PostCategories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PostTags\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PostTags\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PostTags\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\PostTags\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PostTags\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -581,6 +600,16 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Blogging-Times.Data\Blogging-Times.Data.csproj">
+      <Project>{1acc2a48-74ba-4c25-ac74-73d9c32321f4}</Project>
+      <Name>Blogging-Times.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Blogging-Times.Posts\Blogging-Times.Posts.csproj">
+      <Project>{01314912-52c5-44fd-950b-168a3a000c99}</Project>
+      <Name>Blogging-Times.Posts</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
