@@ -46,3 +46,13 @@ C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\obj\Debug\Bloggin
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\obj\Debug\Blogging-Times.Web.csproj.CoreCompileInputs.cache
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\obj\Debug\Blogging-Times.Web.dll
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\obj\Debug\Blogging-Times.Web.pdb
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\Blogging-Times.Data.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\Blogging-Times.Posts.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\EntityFramework.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\Blogging-Times.Data.pdb
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\Blogging-Times.Data.dll.config
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\Blogging-Times.Posts.pdb
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\Blogging-Times.Posts.dll.config
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\EntityFramework.xml
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\EntityFramework.SqlServer.xml
