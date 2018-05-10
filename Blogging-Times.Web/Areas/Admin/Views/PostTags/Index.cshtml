@@ -14,6 +14,7 @@
         <th>
             @Html.DisplayNameFor(model => model.TagName)
         </th>
+        <th>Total Post</th>
         <th></th>
     </tr>
 
@@ -21,6 +22,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.TagName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostList.Count)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

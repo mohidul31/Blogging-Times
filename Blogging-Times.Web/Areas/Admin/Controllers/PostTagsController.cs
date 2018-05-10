@@ -9,110 +9,110 @@ using System.Web.Mvc;
 using Blogging_Times.Data;
 using Blogging_Times.Posts;
 
-namespace Blogging_Times.Web.Areas.Admin
+namespace Blogging_Times.Web.Areas.Admin.Controllers
 {
-    public class PostCategoriesController : Controller
+    public class PostTagsController : Controller
     {
         private PostDbContext db = new PostDbContext();
 
-        // GET: Admin/PostCategories
+        // GET: Admin/PostTags
         public ActionResult Index()
         {
-            return View(db.PostCategory.ToList());
+            return View(db.PostTag.ToList());
         }
 
-        // GET: Admin/PostCategories/Details/5
+        // GET: Admin/PostTags/Details/5
         public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PostCategory postCategory = db.PostCategory.Find(id);
-            if (postCategory == null)
+            PostTag postTag = db.PostTag.Find(id);
+            if (postTag == null)
             {
                 return HttpNotFound();
             }
-            return View(postCategory);
+            return View(postTag);
         }
 
-        // GET: Admin/PostCategories/Create
+        // GET: Admin/PostTags/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/PostCategories/Create
+        // POST: Admin/PostTags/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,CategoryName,CreatedAt")] PostCategory postCategory)
+        public ActionResult Create([Bind(Include = "ID,TagName,CreatedAt")] PostTag postTag)
         {
             if (ModelState.IsValid)
             {
-                postCategory.ID = Guid.NewGuid();
-                db.PostCategory.Add(postCategory);
+                postTag.ID = Guid.NewGuid();
+                db.PostTag.Add(postTag);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(postCategory);
+            return View(postTag);
         }
 
-        // GET: Admin/PostCategories/Edit/5
+        // GET: Admin/PostTags/Edit/5
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PostCategory postCategory = db.PostCategory.Find(id);
-            if (postCategory == null)
+            PostTag postTag = db.PostTag.Find(id);
+            if (postTag == null)
             {
                 return HttpNotFound();
             }
-            return View(postCategory);
+            return View(postTag);
         }
 
-        // POST: Admin/PostCategories/Edit/5
+        // POST: Admin/PostTags/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,CategoryName,CreatedAt")] PostCategory postCategory)
+        public ActionResult Edit([Bind(Include = "ID,TagName,CreatedAt")] PostTag postTag)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(postCategory).State = EntityState.Modified;
+                db.Entry(postTag).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(postCategory);
+            return View(postTag);
         }
 
-        // GET: Admin/PostCategories/Delete/5
+        // GET: Admin/PostTags/Delete/5
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PostCategory postCategory = db.PostCategory.Find(id);
-            if (postCategory == null)
+            PostTag postTag = db.PostTag.Find(id);
+            if (postTag == null)
             {
                 return HttpNotFound();
             }
-            return View(postCategory);
+            return View(postTag);
         }
 
-        // POST: Admin/PostCategories/Delete/5
+        // POST: Admin/PostTags/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            PostCategory postCategory = db.PostCategory.Find(id);
-            db.PostCategory.Remove(postCategory);
+            PostTag postTag = db.PostTag.Find(id);
+            db.PostTag.Remove(postTag);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

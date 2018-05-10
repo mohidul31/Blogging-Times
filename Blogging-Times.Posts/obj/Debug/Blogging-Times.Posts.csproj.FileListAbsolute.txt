@@ -15,3 +15,5 @@ C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogg
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging_Times.Posts.Migrations.InitialCreate.resources
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging-Times.Posts.csproj.GenerateResource.Cache
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging_Times.Posts.Migrations.ManyToManyRelatrion_1.resources
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging_Times.Posts.Migrations._3_Post_work.resources
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging_Times.Posts.Migrations._4_Steps.resources

@@ -55,8 +55,17 @@
     <Compile Include="Migrations\201805091831166_ManyToManyRelatrion_1.Designer.cs">
       <DependentUpon>201805091831166_ManyToManyRelatrion_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805100755085_3_Post_work.cs" />
+    <Compile Include="Migrations\201805100755085_3_Post_work.Designer.cs">
+      <DependentUpon>201805100755085_3_Post_work.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805101806234_4_Steps.cs" />
+    <Compile Include="Migrations\201805101806234_4_Steps.Designer.cs">
+      <DependentUpon>201805101806234_4_Steps.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PostDbContext.cs" />
+    <Compile Include="PostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +84,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805091831166_ManyToManyRelatrion_1.resx">
       <DependentUpon>201805091831166_ManyToManyRelatrion_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805100755085_3_Post_work.resx">
+      <DependentUpon>201805100755085_3_Post_work.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805101806234_4_Steps.resx">
+      <DependentUpon>201805101806234_4_Steps.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
