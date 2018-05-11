@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArchiveEntry.cs" />
+    <Compile Include="HomeViewModel.cs" />
     <Compile Include="Migrations\201805091745250_InitialCreate.cs" />
     <Compile Include="Migrations\201805091745250_InitialCreate.Designer.cs">
       <DependentUpon>201805091745250_InitialCreate.cs</DependentUpon>

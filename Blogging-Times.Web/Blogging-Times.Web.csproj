@@ -588,6 +588,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\js\.DS_Store" />
+    <Content Include="Views\Shared\_HomeRightPanel.cshtml" />
+    <Content Include="Views\Shared\_PostList.cshtml" />
+    <Content Include="Views\Home\PostDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
