@@ -8,9 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using Blogging_Times.Data;
 using Blogging_Times.Posts;
+using Blogging_Times.Web.Models;
 
 namespace Blogging_Times.Web.Areas.Admin.Controllers
 {
+    [AdminRequired]
     public class PostTagsController : Controller
     {
         private PostDbContext db = new PostDbContext();

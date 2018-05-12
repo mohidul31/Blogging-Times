@@ -8,9 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using Blogging_Times.Data;
 using Blogging_Times.Posts;
+using Blogging_Times.Web.Models;
 
 namespace Blogging_Times.Web.Areas.Admin.Controllers
 {
+    [AdminRequired]
     public class PostCategoriesController : Controller
     {
         private PostDbContext db = new PostDbContext();
@@ -47,11 +49,11 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,CategoryName,CreatedAt")] PostCategory postCategory)
+        public ActionResult Create(PostCategory postCategory)
         {
             if (ModelState.IsValid)
             {
-                postCategory.ID = Guid.NewGuid();
+                postCategory.CreatedBy = LoggedUserInfo.GetLoggedUserInfo().ID;
                 db.PostCategory.Add(postCategory);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -80,10 +82,11 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,CategoryName,CreatedAt")] PostCategory postCategory)
+        public ActionResult Edit( PostCategory postCategory)
         {
             if (ModelState.IsValid)
             {
+                postCategory.UpdatedBy = LoggedUserInfo.GetLoggedUserInfo().ID;
                 db.Entry(postCategory).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -9,7 +9,7 @@ namespace Blogging_Times.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(Guid? tag,Guid ? category,int? month,int? year,string search)
+        public ActionResult Index(Guid? tag,Guid ? category,int? month,int? year,string search="")
         {
             ViewBag.Title = "Home Page";
             ViewBag.Search = search;
@@ -22,7 +22,7 @@ namespace Blogging_Times.Web.Controllers
         public ActionResult PostDetails(Guid? post)
         {
             ViewBag.Title = "Post Page";
-            ViewBag.Search = "";
+            ViewBag.Search = null;
 
             var result = new HomeViewModel(null,null,null,null,post);
 
