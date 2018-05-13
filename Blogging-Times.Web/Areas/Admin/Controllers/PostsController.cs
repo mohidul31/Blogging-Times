@@ -8,9 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using Blogging_Times.Data;
 using Blogging_Times.Posts;
+using Blogging_Times.Web.Models;
 
 namespace Blogging_Times.Web.Areas.Admin.Controllers
 {
+    [LoginRequired]
     public class PostsController : Controller
     {
         private PostDbContext db = new PostDbContext();
@@ -50,6 +52,7 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create( PostModel model)
         {
             if (ModelState.IsValid)
@@ -107,6 +110,7 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Posts/Delete/5
+        [AdminRequired]
         public ActionResult Delete(Guid? id)
         {
             if (id == null)

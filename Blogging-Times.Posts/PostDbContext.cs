@@ -19,7 +19,7 @@ namespace Blogging_Times.Posts
         public DbSet<Post> Post { get; set; }
         public DbSet<PostCategory> PostCategory { get; set; }
         public DbSet<PostTag> PostTag { get; set; }
-        //public DbSet<PostTagPostRelation> PostTagPostRelation { get; set; }
+        public DbSet<Users> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -28,6 +28,5 @@ namespace Blogging_Times.Posts
             //Remove Cascade Delete
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
-
     }
 }

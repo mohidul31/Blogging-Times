@@ -17,7 +17,6 @@ namespace Blogging_Times.Data
         }
 
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid ID { get; set; }
 
         [ScaffoldColumn(false)]
@@ -27,9 +26,13 @@ namespace Blogging_Times.Data
         public DateTime? UpdatedAt { get; set; }
 
         [ScaffoldColumn(false)]
-        public string CreatedBy { get; set; }
+        public Guid? CreatedBy { get; set; }
+        [ForeignKey("CreatedBy")]
+        public virtual Users CreatedByUsers { get; set; }
 
         [ScaffoldColumn(false)]
-        public string UpdatedBy { get; set; }
+         public Guid? UpdatedBy { get; set; }
+        [ForeignKey("UpdatedBy")]
+        public virtual Users UpdatedByUsers { get; set; }
     }
 }
