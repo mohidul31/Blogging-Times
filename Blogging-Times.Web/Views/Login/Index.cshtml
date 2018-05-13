@@ -38,6 +38,12 @@
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
+            @if (TempData["message"] != null)
+            {
+                <div class="callout callout-@TempData["alertType"]">
+                    @TempData["message"]
+                </div>
+            }
             <p class="login-box-msg">Sign in to start your session</p>
             <form action="/Login/Index" method="post">
                 @Html.AntiForgeryToken()

@@ -8,9 +8,10 @@ namespace Blogging_Times.Web.Models
 {
     public class LoggedUserInfo
     {
-        public string username { get; set; }
+        public string Username { get; set; }
         public Guid? ID { get; set; }
         public UserRoleEnum UserRoleEnum { get; set; }
+        public string PasswordHash { get; set; }
 
         public static void AddLoggedUserInfo(LoggedUserInfo item)
         {

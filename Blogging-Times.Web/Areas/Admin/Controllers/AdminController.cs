@@ -40,5 +40,11 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            LoggedUserInfo.UserLogOut();
+            return Redirect("/home");
+        }
     }
 }

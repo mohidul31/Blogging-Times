@@ -28,6 +28,5 @@ namespace Blogging_Times.Posts
             //Remove Cascade Delete
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
-
     }
 }

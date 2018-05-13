@@ -32,6 +32,8 @@ namespace Blogging_Times.Web.Controllers
             ViewBag.ReturnUrl = returnUrl;
             if (!ModelState.IsValid)
             {
+                TempData["message"] = "";
+                TempData["alertType"] = "danger";
                 return View(model);
             }
 
@@ -41,9 +43,10 @@ namespace Blogging_Times.Web.Controllers
                 Users user = new AccountLoginModel().GetUserByLogin(model.Username, model.Password, model.RememberMe);
 
                 LoggedUserInfo loggedUser = new LoggedUserInfo();
-                loggedUser.username = user.Username;
+                loggedUser.Username = user.Username;
                 loggedUser.ID = user.ID;
                 loggedUser.UserRoleEnum = user.UserRoleEnum.Value;
+                loggedUser.PasswordHash = Crypto.SHA256(model.Password);
 
                 LoggedUserInfo.AddLoggedUserInfo(loggedUser);
 
@@ -58,6 +61,8 @@ namespace Blogging_Times.Web.Controllers
             }
             else
             {
+                TempData["message"] = "Invalid login attempt";
+                TempData["alertType"] = "danger";
                 ModelState.AddModelError("", "Invalid login attempt.");
                 return View(model);
             }
