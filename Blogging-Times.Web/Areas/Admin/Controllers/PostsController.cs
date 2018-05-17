@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using Blogging_Times.Data;
 using Blogging_Times.Posts;
 using Blogging_Times.Web.Models;
+using CrystalDecisions.CrystalReports.Engine;
+using System.IO;
 
 namespace Blogging_Times.Web.Areas.Admin.Controllers
 {
@@ -134,6 +136,27 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
             db.Post.Remove(post);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Export()
+        {
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/CrystalReports/PostsReportForAdmin.rpt")));
+
+            //rd.SetDataSource(db.Post.ToList());
+            rd.SetDataSource(db.Post.Select(p => new
+            {
+                Title = p.PostTitle,
+                Description = p.PostDescription,
+            }).ToList());
+
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+
+            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            stream.Seek(0, SeekOrigin.Begin);
+            return File(stream, "application/pdf", "PostList.pdf");
         }
 
         protected override void Dispose(bool disposing)
