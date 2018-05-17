@@ -11,6 +11,10 @@ using Blogging_Times.Posts;
 using Blogging_Times.Web.Models;
 using CrystalDecisions.CrystalReports.Engine;
 using System.IO;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace Blogging_Times.Web.Areas.Admin.Controllers
 {
@@ -19,11 +23,62 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
     {
         private PostDbContext db = new PostDbContext();
 
-        // GET: Admin/Posts
         public ActionResult Index()
         {
-            var post = db.Post.Include(p => p.PostCategory);
+             var post = db.Post;
             return View(post.ToList());
+        }
+        // GET: Admin/Posts
+        public ActionResult Index2()
+        {
+            
+            IEnumerable<Post> post = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:51978/");
+
+                client.DefaultRequestHeaders.Clear();
+                var responseTask = client.GetAsync("api/PostApi");
+                responseTask.Wait();
+                HttpResponseMessage response = responseTask.Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var readTask = response.Content.ReadAsAsync<IList<Post>>();
+                    readTask.Wait();
+                    post= readTask.Result;
+                }
+                else
+                {
+                    post = Enumerable.Empty<Post>();
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                }
+
+            }
+            return View("Index", post);
+        }
+
+        public async Task<ActionResult> Index3()
+        {
+            IEnumerable<Post> post = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:51978/");
+
+                client.DefaultRequestHeaders.Clear();
+                HttpResponseMessage response = await client.GetAsync("api/PostApi");
+
+                if (response.IsSuccessStatusCode)
+                {
+                     post = await response.Content.ReadAsAsync<IList<Post>>();
+                }
+                else
+                {
+                    post =  Enumerable.Empty<Post>();
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                }
+            }
+            return View("Index",post);
         }
 
         // GET: Admin/Posts/Details/5
