@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "AutoComplete";
+}
+
+<h2>AutoComplete</h2>
+
+<form>
+    Place Name:
+    <input type="text" name="place_name" value="" id="myData">
+</form>
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<style>
+    /*css for Scrollbar in autocomplete*/
+    .ui-autocomplete {
+        max-height: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 0px;
+    }
+
+    * html .ui-autocomplete {
+        height: 200px;
+    }
+</style>
+
+
+@section scripts{
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myData").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/AjaxMagic/Shovon/AutoCompleteSearch_result",
+                        type: "GET",
+                        dataType: "json",
+                        data: { term: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.CategoryName,
+                                    value: item.CategoryName,
+                                };
+                            }))
+
+                        }
+                    })
+                },
+            });
+            //===============================to highlight matched word
+            $.ui.autocomplete.prototype._renderItem = function (ul, item) {
+                var t = String(item.label).replace(new RegExp(this.term, "gi"), "<b>$&</b>");
+                return $("<li></li>").data("item.autocomplete", item).append("<a>" + t + "</a>").appendTo(ul);
+            };
+        })
+
+    </script>
+}

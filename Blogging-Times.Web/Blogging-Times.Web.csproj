@@ -159,12 +159,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AnalysisController.cs" />
     <Compile Include="Areas\Admin\Controllers\ChangePasswordController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostTagsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\AjaxMagic\AjaxMagicAreaRegistration.cs" />
+    <Compile Include="Areas\AjaxMagic\Controllers\ShovonController.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
     <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
@@ -411,6 +414,7 @@
     <Content Include="Content\css\jquery.DonutWidget.min.css" />
     <Content Include="Content\css\jquerysctipttop.css" />
     <Content Include="Content\css\linearicons.css" />
+    <Content Include="Content\css\Loader\2.gif" />
     <Content Include="Content\css\magnific-popup.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\nice-select.css" />
@@ -574,14 +578,21 @@
     <Content Include="Areas\Admin\Views\Posts\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\AccessDenied.cshtml" />
     <Content Include="Areas\Admin\Views\ChangePassword\Index.cshtml" />
     <Content Include="CrystalReports\DataSetPosts.xsc">
       <DependentUpon>DataSetPosts.xsd</DependentUpon>
     </Content>
+    <Content Include="Areas\AjaxMagic\Views\web.config" />
+    <Content Include="Areas\AjaxMagic\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\AjaxMagic\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\AjaxMagic\Views\Shovon\AutoComplete.cshtml" />
+    <Content Include="Areas\AjaxMagic\Views\Shovon\OnSelectAppendData.cshtml" />
+    <Content Include="Areas\AjaxMagic\Views\Shovon\OnChangeShowData.cshtml" />
+    <Content Include="Areas\AjaxMagic\Views\Shovon\OnClickLoadData.cshtml" />
+    <Content Include="Areas\AjaxMagic\Views\Shared\_PostList.cshtml" />
+    <Content Include="Areas\Admin\Views\Analysis\PostAnalysis.cshtml" />
     <None Include="CrystalReports\DataSetPosts.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -638,6 +649,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\AjaxMagic\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

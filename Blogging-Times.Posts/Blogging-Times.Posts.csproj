@@ -74,6 +74,7 @@
       <DependentUpon>201805120142487_6_steps.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="PostAnalysisBarChart.cs" />
     <Compile Include="PostDbContext.cs" />
     <Compile Include="PostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

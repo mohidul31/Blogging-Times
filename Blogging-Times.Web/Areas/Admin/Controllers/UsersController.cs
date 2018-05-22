@@ -24,21 +24,6 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
             return View(db.Users.ToList());
         }
 
-        // GET: Admin/Users/Details/5
-        public ActionResult Details(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Users users = db.Users.Find(id);
-            if (users == null)
-            {
-                return HttpNotFound();
-            }
-            return View(users);
-        }
-
         // GET: Admin/Users/Create
         public ActionResult Create()
         {
@@ -64,37 +49,7 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
             return View(users);
         }
 
-        // GET: Admin/Users/Edit/5
-        public ActionResult Edit(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Users users = db.Users.Find(id);
-            if (users == null)
-            {
-                return HttpNotFound();
-            }
-            return View(users);
-        }
-
-        // POST: Admin/Users/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Username,Password,UserRoleEnum,CreatedAt,UpdatedAt,CreatedBy")] Users users)
-        {
-            if (ModelState.IsValid)
-            {
-                users.Password = Crypto.SHA256(users.Password);
-                db.Entry(users).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(users);
-        }
+       
 
         // GET: Admin/Users/Delete/5
         public ActionResult Delete(Guid? id)

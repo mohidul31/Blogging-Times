@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Blogging_Times.Data.Post>
+
+@{
+    ViewBag.Title = "OnClickLoadData";
+}
+
+<h2>OnClickLoadData</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedByUsers.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostCategory.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedByUsers.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostDescription)
+        </th>
+        <th></th>
+    </tr>
+
+</table>
+<div id="autoload_div">
+    @Html.Partial("_PostList")
+</div>
+
+<button class="load_more_btn btn btn-info"><i class="fa fa-spinner" aria-hidden="true"></i> Load More...........</button>
+
+@section scripts{
+
+    <script>
+        var page = 1;
+        $(".load_more_btn").click(function () {
+            page++;
+            $.ajax({
+                url: '/Shovon/LoadMoreData?page=' + page, //Call Controller
+                type: "get",
+                success: function (data) {
+                    alert("OK");
+                    if (data) {
+                        $("#autoload_div").append(data); //Append Div with Data
+                    } else {
+                        $('.load_more_btn').html("No More Data Available");//Empty Data Messgae
+                        $('.load_more_btn').attr("disabled", true);
+                        return;
+                    }
+
+                },
+                error: function () {
+                    $('.load_more_btn').html("Server not responding...");
+                }
+            })
+        });
+    </script>
+}

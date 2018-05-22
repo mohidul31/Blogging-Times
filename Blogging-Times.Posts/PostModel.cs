@@ -56,5 +56,22 @@ namespace Blogging_Times.Posts
             Post updatedData = GetPostInfoFromUserInput(post);
             db.SaveChanges();
         }
+
+        public int GetPostCountByMonthAndYear(int month=0,int year=0)
+        {
+            IQueryable<Post> result= db.Post;
+
+            if(month != 0)
+            {
+                result = result.Where(x => x.CreatedAt.Month == month);
+            }
+
+            if (year != 0)
+            {
+                result = result.Where(x => x.CreatedAt.Year == year);
+            }
+
+            return result.Count();
+        }
     }
 }

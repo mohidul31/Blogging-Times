@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "OnSelectAppendData";
+}
+
+<h2>OnSelectAppendData</h2>
+
+@Html.DropDownList("SelectPostCategory", null, htmlAttributes: new { @class = "form-control" })
+
+<select id="PostList" class="form-control"></select>
+
+
+<img src="~/Content/css/Loader/2.gif" class="ajaxLoader" style="display:none;position:center;" />
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#SelectPostCategory").change(function () {
+
+                $("body").css("opacity", "0.6");
+                $('.ajaxLoader').show();
+
+                $("#PostList").html("<option value=''>--Select--</option>");
+                /*Ajax Request Starts*/
+                $.ajax({
+                    url: "/Shovon/GetPostListByPostCategory",
+                    type: "GET",
+                    dataType: 'json',
+                    data: { selected_id: $("#SelectPostCategory").val() },
+                    success: function (data) {
+                        $("body").css("opacity", "1.0");
+                        $('.ajaxLoader').hide();
+                        for (var i = 0; i <= data.length; i++) {
+                            $("#PostList").append("<option value=" + data[i].ID + ">" + data[i].PostTitle + "</option>");
+                        }
+
+
+                    }
+                });
+                /*Ajax Request Ends*/
+            });
+        });
+    </script>
+}

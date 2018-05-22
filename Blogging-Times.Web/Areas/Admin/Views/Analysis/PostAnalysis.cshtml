@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "PostAnalysis";
+}
+
+<h2>PostAnalysis</h2>
+
+@{ 
+    List<Blogging_Times.Posts.PostAnalysisBarChart> postAnalysisBarChart = new List<Blogging_Times.Posts.PostAnalysisBarChart>();
+    /*Blogging_Times.Posts.PostAnalysisBarChart p = new Blogging_Times.Posts.PostAnalysisBarChart();
+    p.MonthName = "Month Name";
+    p.TotalPost = "Total Post";
+    postAnalysisBarChart.Add(p);*/
+
+}
+<table class="table">
+    <tr>
+        <th>Monh\Year</th>
+        @for (int year = 2016; year <= DateTime.Now.Year; year++)
+        {
+            <th>@year</th>
+          
+         }
+    </tr>
+    @for (int month = 1; month <= 12; month++)
+    {
+        <tr>
+            <td>
+                @{
+                    string monthName = new DateTime(2010, month, 1).ToString("MMMM");
+                }
+                @monthName
+              
+            </td>
+            @for (int year = 2016; year <= DateTime.Now.Year; year++)
+            {
+                <th>
+                    @{ 
+                        int count = new Blogging_Times.Posts.PostModel().GetPostCountByMonthAndYear(month, year);
+
+                        if (count !=0)
+                        {
+                            Blogging_Times.Posts.PostAnalysisBarChart p1 = new Blogging_Times.Posts.PostAnalysisBarChart();
+                            p1.MonthName = monthName + " " + year;
+                            p1.TotalPost = count.ToString();
+                            postAnalysisBarChart.Add(p1);
+                        }
+
+
+                    }
+                    @(count == 0 ? "-" : count.ToString()) 
+                </th>
+             }
+
+        </tr>
+     }
+</table>
+
+<div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+
+<div>
+    <img src="@Url.Action("GetChartImage")" />
+</div>
+
+@section scripts{
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        //var data = google.visualization.arrayToDataTable([
+        //  ['Year', 'Sales', 'Expenses', 'Profit'],
+        //  ['2014', 1000, 400, 200],
+        //  ['2015', 1170, 460, 250],
+        //  ['2016', 660, 1120, 300],
+        //  ['2017', 1030, 540, 350]
+          //  ]);
+          var data = google.visualization.arrayToDataTable([
+              ['Month', 'POST'],
+              @foreach (var item in postAnalysisBarChart)
+               {
+                  <text>['@item.MonthName', @item.TotalPost], </text>
+              }
+
+          ]);
+
+        var options = {
+          chart: {
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+</script>
+}

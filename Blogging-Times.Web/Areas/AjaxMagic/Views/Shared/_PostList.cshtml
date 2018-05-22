@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Blogging_Times.Data.Post>
+@{
+    ViewBag.Title = "_PostList";
+}
+
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedByUsers.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostCategory.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedByUsers.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostDescription)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+</table>

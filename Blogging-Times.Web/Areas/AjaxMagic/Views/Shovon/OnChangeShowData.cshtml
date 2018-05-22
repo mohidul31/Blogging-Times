@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "OnChangeShowData";
+}
+
+<h2>OnChangeShowData</h2>
+
+@Html.DropDownList("SelectPost", null, htmlAttributes: new { @class = "form-control" })
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><hr>
+
+<table>
+    <tr>
+        <td>Post Title</td>
+        <td><p id="title"></p></td>
+    </tr>
+    <tr>
+        <td>Post Description</td>
+        <td><p id="description"></p></td>
+    </tr>
+    <tr>
+        <td>Created By</td>
+        <td><p id="createdBy"></p></td>
+    </tr>
+</table>
+
+<img src="~/Content/css/Loader/2.gif" class="ajaxLoader" style="display:none;position:center;" />
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#SelectPost").change(function () {
+
+                $("body").css("opacity", "0.6");
+                $('.ajaxLoader').show();
+                
+                /*Ajax Request Starts*/
+                $.ajax({
+                    url: "/Shovon/GetPostListByID",
+                    type: "GET",
+                    dataType: 'json',
+                    data: { selected_id: $("#SelectPost").val() },
+                    success: function (data) {
+                        $("body").css("opacity", "1.0");
+                        $('.ajaxLoader').hide();
+
+                        $("#title").html(data.PostTitle);
+                        $("#description").html(data.PostDescription);
+                        $("#createdBy").html(data.CreatedBy);
+                    },
+                    error: function (jqXHR, exception) {
+
+                        $("body").css("opacity", "1.0");
+                        $('.ajaxLoader').hide();
+                        var error_msg = '';
+                        if (jqXHR.status === 0) {
+                            error_msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            error_msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            error_msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            error_msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            error_msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            error_msg = 'Ajax request aborted.';
+                        } else {
+                            error_msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                        alert(error_msg);
+                    },
+                });
+                /*Ajax Request Ends*/
+            });
+        });
+    </script>
+}
