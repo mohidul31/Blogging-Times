@@ -45,7 +45,8 @@ namespace Blogging_Times.Posts
         public void CreatePost()
         {
             Post post = GetPostInfoFromUserInput();
-            db.Post.Add(post);
+            //db.Post.Add(post);
+            new Repository<Post>(db).Add(post);
             db.SaveChanges();
         }
 
