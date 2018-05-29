@@ -12,7 +12,16 @@ namespace Blogging_Times.Posts
     {
         public string []PostTag_ID { get; set; }
 
-        PostDbContext db = new PostDbContext();
+        PostDbContext db;
+
+        public PostModel()
+        {
+            db = new PostDbContext();
+        }
+        public PostModel(PostDbContext db)
+        {
+            this.db = db;
+        }
 
         public Post GetPostInfoFromUserInput(Post post=null)
         {

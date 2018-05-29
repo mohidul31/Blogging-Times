@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogging-Times.Posts", "Blo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogging-Times.Data", "Blogging-Times.Data\Blogging-Times.Data.csproj", "{1ACC2A48-74BA-4C25-AC74-73D9C32321F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogging-Times.Tests", "Blogging-Times.Tests\Blogging-Times.Tests.csproj", "{C3EED929-82D3-4272-BD01-DE7D70FF045A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1ACC2A48-74BA-4C25-AC74-73D9C32321F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1ACC2A48-74BA-4C25-AC74-73D9C32321F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1ACC2A48-74BA-4C25-AC74-73D9C32321F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3EED929-82D3-4272-BD01-DE7D70FF045A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3EED929-82D3-4272-BD01-DE7D70FF045A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3EED929-82D3-4272-BD01-DE7D70FF045A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3EED929-82D3-4272-BD01-DE7D70FF045A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

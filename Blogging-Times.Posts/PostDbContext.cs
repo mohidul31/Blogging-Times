@@ -16,10 +16,10 @@ namespace Blogging_Times.Posts
             //
         }
 
-        public DbSet<Post> Post { get; set; }
-        public DbSet<PostCategory> PostCategory { get; set; }
-        public DbSet<PostTag> PostTag { get; set; }
-        public DbSet<Users> Users { get; set; }
+        public virtual DbSet<Post> Post { get; set; }
+        public virtual DbSet<PostCategory> PostCategory { get; set; }
+        public virtual DbSet<PostTag> PostTag { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
