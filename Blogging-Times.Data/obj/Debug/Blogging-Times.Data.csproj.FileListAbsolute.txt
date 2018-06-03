@@ -9,3 +9,4 @@ C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\obj\Debug\Bloggi
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\obj\Debug\Blogging-Times.Data.csproj.CoreCompileInputs.cache
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\obj\Debug\Blogging-Times.Data.dll
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\obj\Debug\Blogging-Times.Data.pdb
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Debug\System.Linq.Dynamic.dll

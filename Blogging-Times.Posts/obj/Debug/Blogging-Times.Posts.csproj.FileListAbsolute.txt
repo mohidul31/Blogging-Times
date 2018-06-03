@@ -19,3 +19,4 @@ C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogg
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging_Times.Posts.Migrations._4_Steps.resources
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging_Times.Posts.Migrations._5_steps.resources
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\obj\Debug\Blogging_Times.Posts.Migrations._6_steps.resources
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Posts\bin\Debug\System.Linq.Dynamic.dll

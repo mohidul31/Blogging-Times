@@ -23,6 +23,40 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
             return View(db.PostCategory.ToList());
         }
 
+        public JsonResult GetPostCategoryResult(DataTablesAjaxRequestModel datatableRequest)
+        {
+            // All Post Data
+            string[] tableColumnmList = { null, "CategoryName", null, null };
+            string searchValue = datatableRequest.GetSearchText();
+            int serial = datatableRequest.GetSerialNoOfFirstRow();
+
+            IEnumerable<PostCategory> records = new Repository<PostCategory>(db).GetAjaxDatatablePagedDataList(
+                datatableRequest,
+                out int recordsTotal, out int recordsFiltered,
+                tableColumnmList,
+                x => x.CategoryName.Contains(searchValue));
+
+
+            var dataSet = (
+                    from record in records
+                    select new string[]
+                    {
+                        serial++.ToString(),
+                        record.CategoryName.ToString(),
+                        record.CreatedAt.ToString(),
+                        record.ID.ToString(),
+                    }
+                );
+
+            var jsonData = new
+            {
+                recordsTotal = recordsTotal,
+                recordsFiltered = recordsFiltered,
+                data = dataSet
+            };
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Admin/PostCategories/Details/5
         public ActionResult Details(Guid? id)
         {

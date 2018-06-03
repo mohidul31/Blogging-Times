@@ -9,31 +9,54 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PostList)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostList.Count)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+<table class="table" id="example1">
+    <thead>
+        <tr>
+            <td>SL</td>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>Created Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
 
 </table>
+
+<!-- DataTables -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+@section scripts{
+    <!-- DataTables -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <!-- page script -->
+    <script>
+        $(document).ready(function () {
+            $('#example1').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "/admin/PostCategories/GetPostCategoryResult",
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],	//to add all button
+                pageLength: 10,	//to make default
+
+
+                columnDefs: [
+                    { targets: 0, orderable: false },
+                    { targets: 2, orderable: false },
+                    {
+                        render: function (data, type, row) {
+                            var actionHTML = "<a href='/Admin/PostCategories/Edit/" + row[3] + "'>Edit&nbsp;|&nbsp;</a>";
+                            actionHTML += "<a href='/Admin/PostCategories/Details/" + row[3] + "'>Details&nbsp;|&nbsp;</a>";
+                            actionHTML += "<a href='/Admin/PostCategories/Delete/" + row[3] + "'>Delete</a>";
+                            return actionHTML;
+                        },
+                        targets: 3,
+                        orderable: false
+                    },
+                ],
+
+            });
+        });
+    </script>
+}

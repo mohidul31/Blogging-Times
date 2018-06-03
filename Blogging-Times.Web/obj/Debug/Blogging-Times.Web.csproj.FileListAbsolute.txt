@@ -72,3 +72,4 @@ C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\CrystalDecisi
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\stdole.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Web\bin\System.Linq.Dynamic.dll
