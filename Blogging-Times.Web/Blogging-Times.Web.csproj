@@ -601,9 +601,11 @@
     <Content Include="CrystalReports\DataSetPosts.xss">
       <DependentUpon>DataSetPosts.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.dataTables.yadcf.js" />
     <Content Include="Scripts\js\easing.min.js" />
     <Content Include="Scripts\js\hoverIntent.js" />
     <Content Include="Scripts\js\imagesloaded.pkgd.min.js" />

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Blogging_Times.Data;
 using Blogging_Times.Posts;
 using Blogging_Times.Web.Models;
+using System.Linq.Expressions;
 
 namespace Blogging_Times.Web.Areas.Admin.Controllers
 {
@@ -20,7 +21,7 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
         // GET: Admin/PostCategories
         public ActionResult Index()
         {
-            return View(db.PostCategory.ToList());
+            return View();
         }
 
         public JsonResult GetPostCategoryResult(DataTablesAjaxRequestModel datatableRequest)
@@ -30,12 +31,34 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
             string searchValue = datatableRequest.GetSearchText();
             int serial = datatableRequest.GetSerialNoOfFirstRow();
 
-            IEnumerable<PostCategory> records = new Repository<PostCategory>(db).GetAjaxDatatablePagedDataList(
-                datatableRequest,
-                out int recordsTotal, out int recordsFiltered,
-                tableColumnmList,
-                x => x.CategoryName.Contains(searchValue));
+            string search_by_name = Request["parameterName"];
+            string search_by_postType = Request["parameterName2"];
 
+            //PostCategory postCategory = new PostCategory();
+            List<Expression<Func<PostCategory, bool>>> filterList = new List<Expression<Func<PostCategory, bool>>>();
+            if (search_by_name != "")
+            {
+                Expression<Func<PostCategory, bool>> filter = null;
+                filter = x => x.CategoryName.Contains(search_by_name);
+                filterList.Add(filter);
+            }
+            if (search_by_postType == "1")
+            {
+                //Non
+                Expression<Func<PostCategory, bool>> filter = null;
+                filter = x => x.PostList.Count <= 0;
+                filterList.Add(filter);
+            }
+            if (search_by_postType=="2")
+            {
+                //Posted
+                Expression<Func<PostCategory, bool>> filter = null;
+                filter = x => x.PostList.Count > 0;
+                filterList.Add(filter);
+            }
+
+            IEnumerable<PostCategory> records = new Repository<PostCategory>(db).GetAjaxDatatablePagedDataList(datatableRequest,
+                out int recordsTotal, out int recordsFiltered,tableColumnmList,filterList);
 
             var dataSet = (
                     from record in records
@@ -52,7 +75,7 @@ namespace Blogging_Times.Web.Areas.Admin.Controllers
             {
                 recordsTotal = recordsTotal,
                 recordsFiltered = recordsFiltered,
-                data = dataSet
+                data = records
             };
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }

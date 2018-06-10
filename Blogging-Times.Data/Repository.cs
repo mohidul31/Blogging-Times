@@ -48,7 +48,7 @@ namespace Blogging_Times.Data
             out int recordsTotal,
             out int recordsFiltered,
             string[] tableColumnmList = null,
-            Expression<Func<T, bool>> filter = null,
+            List<Expression<Func<T, bool>>> filterList = null,
             string includeProperties = null,
             bool isTrackingOff = false)
         {
@@ -76,9 +76,13 @@ namespace Blogging_Times.Data
             }
 
             //Filter
-            if (filter != null)
+            if (filterList != null)
             {
-                result = result.Where(filter);
+                for (int i = 0; i < filterList.Count; i++)
+                {
+                    result = result.Where(filterList[i]);
+                }
+                
             }
             recordsFiltered = result.Count();
 

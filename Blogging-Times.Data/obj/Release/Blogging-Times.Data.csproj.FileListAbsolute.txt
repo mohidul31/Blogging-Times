@@ -1,0 +1,12 @@
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Release\Blogging-Times.Data.dll.config
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Release\Blogging-Times.Data.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Release\Blogging-Times.Data.pdb
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Release\EntityFramework.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Release\System.Linq.Dynamic.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Release\EntityFramework.xml
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\obj\Release\Blogging-Times.Data.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\obj\Release\Blogging-Times.Data.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\obj\Release\Blogging-Times.Data.dll
+C:\Users\Lenovo\source\repos\Blogging-Times\Blogging-Times.Data\obj\Release\Blogging-Times.Data.pdb

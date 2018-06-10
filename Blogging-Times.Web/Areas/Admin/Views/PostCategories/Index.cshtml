@@ -6,6 +6,14 @@
 
 <h2>Index</h2>
 
+<div class="well">
+    <select id="search_by_postType">
+        <option value="0">All</option>
+        <option value="1">Non Posted Category</option>
+        <option value="2">Posted Category</option>
+    </select><br /><br />
+    <input type="text" name="" id="search_by_name" />
+</div>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -33,10 +41,19 @@
     <!-- page script -->
     <script>
         $(document).ready(function () {
-            $('#example1').DataTable({
+            var table=$('#example1').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "/admin/PostCategories/GetPostCategoryResult",
+                searching: false,
+                ajax: {
+                    url: "/admin/PostCategories/GetPostCategoryResult",
+                    data: function (d) {
+                        return $.extend({}, d, {
+                            "parameterName": $('#search_by_name').val(),
+                            "parameterName2": $('#search_by_postType').val(),
+                        });
+                    }
+                },
                 lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],	//to add all button
                 pageLength: 10,	//to make default
 
@@ -56,6 +73,12 @@
                     },
                 ],
 
+            });
+            $('#search_by_postType').change(function () {
+                table.draw();
+            });
+            $("#search_by_name").keyup(function () {
+                table.draw();
             });
         });
     </script>

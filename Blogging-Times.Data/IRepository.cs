@@ -9,7 +9,7 @@ namespace Blogging_Times.Data
         void Add(T item);
         void DeleteByID(Guid id);
         void DeleteByItem(T item);
-        IEnumerable<T> GetAjaxDatatablePagedDataList(DataTablesAjaxRequestModel datatableRequest, out int recordsTotal, out int recordsFiltered, string[] tableColumnmList = null, Expression<Func<T, bool>> filter = null, string includeProperties = null, bool isTrackingOff = false);
+        IEnumerable<T> GetAjaxDatatablePagedDataList(DataTablesAjaxRequestModel datatableRequest, out int recordsTotal, out int recordsFiltered, string[] tableColumnmList = null, List<Expression<Func<T, bool>>> filterList = null, string includeProperties = null, bool isTrackingOff = false);
         IEnumerable<T> GetAll();
         T GetByID(Guid id);
     }
